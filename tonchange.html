@@ -34,6 +34,24 @@ p.en{color:var(--dim);font-size:.82rem;margin-top:2px}
 .fg{color:var(--gold);font-weight:700}
 .ft{color:var(--teal);font-weight:700}
 .flownote{color:var(--dim);font-size:.85rem;margin-top:4px}
+.chartblock{margin:14px 0 18px}
+.chartname{font-weight:700;font-size:.95rem;margin-bottom:6px}
+.chartname .en3{display:block;font-size:.72rem;color:var(--dim);font-weight:500;letter-spacing:.1em}
+.degwrap{max-width:430px;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.degtable{width:100%;border-collapse:collapse;font-size:.8rem;table-layout:fixed}
+.degtable th,.degtable td{padding:4px 2px;text-align:center;border-bottom:1px solid var(--line)}
+.degtable th:not(:last-child),.degtable td:not(:last-child){border-right:1px solid var(--line)}
+@media (max-width:360px){.degtable{font-size:.72rem}.degtable .ml{width:78px;padding-left:6px}.new{padding:0 3px}}
+.degtable tr:last-child th,.degtable tr:last-child td{border-bottom:none}
+.degtable .ml{width:88px;text-align:left;padding-left:10px;white-space:nowrap;font-weight:400}
+.degtable .ml .me{display:block;font-size:.62rem;color:var(--dim);font-weight:500}
+.degtable .ml .mz{display:block;font-size:.78rem;font-weight:700;color:var(--ink)}
+.dh th{color:var(--dim);font-size:.68rem;font-weight:500}
+.nh th{color:var(--teal);font-size:.72rem;font-weight:500}
+.nat{color:#7A827E}
+.al{color:var(--gold);font-weight:700}
+.new{display:inline-block;background:rgba(232,163,61,.22);border-radius:6px;padding:0 5px}
+.chartnote{color:var(--dim);font-size:.85rem;margin-top:6px}
 .srow{margin:6px 0 10px}
 .slabel{font-size:11.5px;font-weight:600;color:var(--dim);margin:0 0 2px}
 .sstaff{display:block;width:100%;max-width:300px;margin:0;height:auto;background:#F7F4EF;border-radius:8px}
@@ -65,6 +83,21 @@ footer a{color:var(--teal);text-decoration:none}
 <div class="flowname">逐次降音 Lowering</div>
 <div class="flow" id="flow"></div>
 <div class="flownote">每一步降一個音,唱名依序 fi→fa、ti→te、mi→me、la→le、re→ra、sol→se。Each step lowers one note.</div>
+</div>
+<div class="chartblock">
+<div class="chartname">同主音音級對照(C 起音)<span class="en3">SAME-TONIC DEGREE COMPARISON, ON C</span></div>
+<div class="degwrap"><table class="degtable">
+<tr class="dh"><th class="ml"></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th></tr>
+<tr class="nh"><th class="ml"></th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th><th>A</th><th>B</th></tr>
+<tr><th class="ml"><span class="me">Lydian</span><span class="mz">利底安</span></th><td class="nat">C</td><td class="nat">D</td><td class="nat">E</td><td class="al">F♯</td><td class="nat">G</td><td class="nat">A</td><td class="nat">B</td></tr>
+<tr><th class="ml"><span class="mz">大調(Ionian)</span></th><td class="nat">C</td><td class="nat">D</td><td class="nat">E</td><td class="nat">F</td><td class="nat">G</td><td class="nat">A</td><td class="nat">B</td></tr>
+<tr><th class="ml"><span class="me">Mixolydian</span><span class="mz">米索利底安</span></th><td class="nat">C</td><td class="nat">D</td><td class="nat">E</td><td class="nat">F</td><td class="nat">G</td><td class="nat">A</td><td class="al"><span class="new">B♭</span></td></tr>
+<tr><th class="ml"><span class="me">Dorian</span><span class="mz">多里安</span></th><td class="nat">C</td><td class="nat">D</td><td class="al"><span class="new">E♭</span></td><td class="nat">F</td><td class="nat">G</td><td class="nat">A</td><td class="al">B♭</td></tr>
+<tr><th class="ml"><span class="mz">自然小調</span></th><td class="nat">C</td><td class="nat">D</td><td class="al">E♭</td><td class="nat">F</td><td class="nat">G</td><td class="al"><span class="new">A♭</span></td><td class="al">B♭</td></tr>
+<tr><th class="ml"><span class="me">Phrygian</span><span class="mz">弗里吉安</span></th><td class="nat">C</td><td class="al"><span class="new">D♭</span></td><td class="al">E♭</td><td class="nat">F</td><td class="nat">G</td><td class="al">A♭</td><td class="al">B♭</td></tr>
+<tr><th class="ml"><span class="me">Locrian</span><span class="mz">洛克里安</span></th><td class="nat">C</td><td class="al">D♭</td><td class="al">E♭</td><td class="nat">F</td><td class="al"><span class="new">G♭</span></td><td class="al">A♭</td><td class="al">B♭</td></tr>
+</table></div>
+<div class="chartnote">從 Lydian 出發,每往下一步多降一個音:金底是該步新降的音,金色是前面累積的變化音,暗色是自然音。Each step down lowers one more note: the highlighted cell is new, gold marks accumulated alterations, dim notes are natural.</div>
 </div>
 
 <h2>三、每個調式怎麼唱</h2>
