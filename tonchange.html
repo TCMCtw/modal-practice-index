@@ -20,8 +20,8 @@ h1 .en{display:block;font-size:.9rem;color:var(--teal);letter-spacing:.14em;font
 .sub{color:var(--dim);font-size:.86rem;margin-top:8px}
 .intro{font-size:.95rem;margin-top:18px}
 .intro .en2{display:block;color:var(--dim);font-size:.84rem;margin-top:2px}
-.audiolabel{font-size:.84rem;color:var(--dim);margin:16px 0 4px}
-audio{width:100%;margin:0 0 6px}
+.rplay{flex:none;width:30px;height:30px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--teal);font-size:.8rem;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;padding:0}
+.rplay.playing{color:var(--gold);border-color:var(--gold)}
 h2{font-family:'Noto Serif TC',serif;font-size:1.05rem;color:var(--gold);letter-spacing:.08em;margin:26px 0 4px}
 p{font-size:.9rem;margin-top:8px}
 p.en{color:var(--dim);font-size:.82rem;margin-top:2px}
@@ -53,7 +53,7 @@ p.en{color:var(--dim);font-size:.82rem;margin-top:2px}
 .new{display:inline-block;background:rgba(232,163,61,.22);border-radius:6px;padding:0 5px}
 .chartnote{color:var(--dim);font-size:.85rem;margin-top:6px}
 .srow{margin:6px 0 10px}
-.slabel{font-size:11.5px;font-weight:600;color:var(--dim);margin:0 0 2px}
+.slabel{font-size:11.5px;font-weight:600;color:var(--dim);margin:0 0 2px;display:flex;align-items:center;gap:8px}
 .sstaff{display:block;width:100%;max-width:300px;margin:0;height:auto;background:#F7F4EF;border-radius:8px}
 footer{text-align:center;color:var(--dim);font-size:.74rem;margin-top:34px;line-height:1.9}
 footer a{color:var(--teal);text-decoration:none}
@@ -66,9 +66,7 @@ footer a{color:var(--teal);text-decoration:none}
   <h1>同主音調式變化<span class="en">PARALLEL MODES</span></h1>
   <div class="sub">C 起音 · 逐次降音</div>
 </header>
-<p class="intro">這份教材搭配音檔,說明「同主音調式變化」怎麼練。請邊聽邊看。<span class="en2">These notes go with the audio and show how the parallel-mode drill works. Listen as you read.</span></p>
-<div class="audiolabel">音檔 Audio(C 起音 · 逐次降音)</div>
-<audio controls preload="none" src="tonchange-c-lower.m4a"></audio>
+<p class="intro">這份教材說明「同主音調式變化」怎麼練;每行譜例旁都有播放鈕,點了就唱給你聽。請邊看邊聽。<span class="en2">These notes show how the parallel-mode drill works. Every staff line has a play button next to it; tap to hear that line sung. Listen as you read.</span></p>
 
 <h2>一、這個練習做什麼</h2>
 <p>整條練習裡,只有主音 C 不動;其他的音,每一步只改一個,音階就換成下一個調式。和降七、升四兩個練習相比:它們在過程中,起音會移動半音;這個練習從頭到尾都在同一個 C 上,主音完全不動。</p>
@@ -117,8 +115,8 @@ footer a{color:var(--teal);text-decoration:none}
 <p class="en">Each line is 8 half notes (4 bars); the upper staff starts on C4 and the lower staff an octave below; 13 lines in all. Each mode takes two lines, the fixed-do line first, then the solfege line; the major scale takes one. A label above each line names the mode and the singing plan, e.g. "Mixolydian · fixed do (2nd lowering, ti→te)" or "Mixolydian · solfege (starts on sol)". Altered notes carry flats.</p>
 
 <h2>六、譜例:逐次降音</h2>
-<p>C 起音練習的上聲部實譜,每列 8 音,唱名標在音符正下方;金色是累積變化音的唱名。實際演唱譜另有一個低八度的下聲部。</p>
-<p class="en">The upper staff of the C drill, 8 notes per line, solfege directly under each note; altered syllables are shown in gold. The sung score has a second staff one octave below.</p>
+<p>C 起音練習的上聲部實譜,每列 8 音,唱名標在音符正下方;金色是累積變化音的唱名。實際演唱譜另有一個低八度的下聲部。點每行左邊的 ▶ 聽那一行(含下聲部)。</p>
+<p class="en">The upper staff of the C drill, 8 notes per line, solfege directly under each note; altered syllables are shown in gold. The sung score has a second staff one octave below; the ▶ button on each line plays that line, lower staff included.</p>
 <div id="staves"></div>
 
 <footer>
@@ -870,7 +868,7 @@ const FLOW_DOWN = [
     el.innerHTML = html;
 })();
 
-function staffRow(row) {
+function staffRow(row, idx) {
     const TOP = 24, SPACE = 8, BOTTOM = TOP + 4 * SPACE, CZ = 34, COLW = 30;
     let s = '';
     for (let i = 0; i < 5; i++) {
@@ -895,10 +893,26 @@ function staffRow(row) {
         const altered = !PLAIN.has(row.syls[i]);
         s += '<text x="' + x + '" y="82" text-anchor="middle" font-size="10.5" font-weight="' + (altered ? 700 : 500) + '" fill="' + (altered ? '#B5741A' : '#0E7C6B') + '">' + row.syls[i] + '</text>';
     });
-    return '<div class="srow"><div class="slabel">' + row.label + '</div><svg class="sstaff" viewBox="0 0 274 90" role="img" aria-label="' + row.label + '">' + s + '</svg></div>';
+    return '<div class="srow"><div class="slabel"><button class="rplay" data-row="' + (idx + 1) + '" aria-label="播放這一行 Play this line">▶</button><span>' + row.label + '</span></div><svg class="sstaff" viewBox="0 0 274 90" role="img" aria-label="' + row.label + '">' + s + '</svg></div>';
 }
 
 document.getElementById('staves').innerHTML = ROWS_DOWN.map(staffRow).join('');
+
+let cur = null, curBtn = null;
+document.getElementById('staves').addEventListener('click', (ev) => {
+    const btn = ev.target.closest('.rplay');
+    if (!btn) return;
+    if (cur && curBtn === btn && !cur.paused) { cur.pause(); return; }
+    if (cur) { cur.pause(); }
+    cur = new Audio('tonchange-row' + String(btn.dataset.row).padStart(2, '0') + '.m4a');
+    curBtn = btn;
+    btn.classList.add('playing');
+    btn.textContent = '⏸';
+    const reset = () => { btn.classList.remove('playing'); btn.textContent = '▶'; };
+    cur.addEventListener('ended', reset);
+    cur.addEventListener('pause', reset);
+    cur.play();
+});
 </script>
 </body>
 </html>
