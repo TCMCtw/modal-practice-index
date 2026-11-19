@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>同主音調式變化 · 調式練習</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--teal:#2FBFAA;--gold:#E8A33D;--ink:#EDEDE8;--dim:#9AA3A0;--card:#1E2426;--line:#33403F}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:'Noto Sans TC',-apple-system,sans-serif;color:var(--ink);background:radial-gradient(120% 90% at 50% 0%,#2A3436 0%,#1B2123 45%,#141819 100%);min-height:100vh;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:28px 18px 64px}
+.back{font-size:.82rem;margin-bottom:18px}
+.back a{color:var(--teal);text-decoration:none}
+header{text-align:center;margin-bottom:14px}
+h1{font-family:'Noto Serif TC',serif;font-size:1.6rem;font-weight:700;letter-spacing:.04em}
+h1 .en{display:block;font-size:.9rem;color:var(--teal);letter-spacing:.14em;font-family:'Noto Sans TC';font-weight:500;margin-top:4px}
+.sub{color:var(--dim);font-size:.86rem;margin-top:8px}
+.intro{font-size:.95rem;margin-top:18px}
+.intro .en2{display:block;color:var(--dim);font-size:.84rem;margin-top:2px}
+.audiolabel{font-size:.84rem;color:var(--dim);margin:16px 0 4px}
+audio{width:100%;margin:0 0 6px}
+h2{font-family:'Noto Serif TC',serif;font-size:1.05rem;color:var(--gold);letter-spacing:.08em;margin:26px 0 4px}
+p{font-size:.9rem;margin-top:8px}
+p.en{color:var(--dim);font-size:.82rem;margin-top:2px}
+.flowblock{margin:12px 0 18px}
+.flowname{font-weight:700;font-size:.95rem;margin-bottom:4px}
+.flow{line-height:2.1;font-size:.95rem}
+.fmode{font-weight:700;color:var(--ink);white-space:nowrap}
+.farr{color:#9AA39F;margin:0 5px}
+.fchg{white-space:nowrap}
+.fg{color:var(--gold);font-weight:700}
+.ft{color:var(--teal);font-weight:700}
+.flownote{color:var(--dim);font-size:.85rem;margin-top:4px}
+.srow{margin:6px 0 10px}
+.slabel{font-size:11.5px;font-weight:600;color:var(--dim);margin:0 0 2px}
+.sstaff{display:block;width:100%;max-width:300px;margin:0;height:auto;background:#F7F4EF;border-radius:8px}
+footer{text-align:center;color:var(--dim);font-size:.74rem;margin-top:34px;line-height:1.9}
+footer a{color:var(--teal);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="back"><a href="index.html">← 回練習總覽 All practices</a></div>
+<header>
+  <h1>同主音調式變化<span class="en">PARALLEL MODES</span></h1>
+  <div class="sub">C 起音 · 逐次降音</div>
+</header>
+<p class="intro">這份教材搭配音檔,說明「同主音調式變化」怎麼練。請邊聽邊看。<span class="en2">These notes go with the audio and show how the parallel-mode drill works. Listen as you read.</span></p>
+<div class="audiolabel">音檔 Audio(C 起音 · 逐次降音)</div>
+<audio controls preload="none" src="tonchange-c-lower.m4a"></audio>
+
+<h2>一、這個練習做什麼</h2>
+<p>整條練習裡,只有主音 C 不動;其他的音,每一步只改一個,音階就換成下一個調式。和降七、升四兩個練習相比:它們在過程中,起音會移動半音;這個練習從頭到尾都在同一個 C 上,主音完全不動。</p>
+<p class="en">Only the tonic C stays fixed; at each step, exactly one other note changes, and the scale becomes the next mode. The Lower-7 and Raise-4 drills move their starting note by a semitone partway through; this drill stays on the same C from beginning to end.</p>
+
+<h2>二、方向:逐次降音</h2>
+<p>練習以逐次降音一個方向進行:從 Lydian 出發,每一步降一個音,走到 Locrian。反向只是把各段順序倒過來(段內的音階仍然向上唱),和降七、升四一樣,一個方向就夠。</p>
+<p class="en">The drill works in one direction: from Lydian, one note lowered per step, down to Locrian. The reverse is just the same chain backwards (each scale still sung upward), so one direction suffices, as with Lower-7 and Raise-4.</p>
+<p>黑色粗體是調式名稱;金色是變化音,青色是它變成的自然音,和下面譜例的唱名顏色一致。</p>
+<p class="en">Mode names are in bold; the altered note is gold and the natural note it becomes is teal, the same colors as the solfege in the notation below.</p>
+<div class="flowblock">
+<div class="flowname">逐次降音 Lowering</div>
+<div class="flow" id="flow"></div>
+<div class="flownote">每一步降一個音,唱名依序 fi→fa、ti→te、mi→me、la→le、re→ra、sol→se。Each step lowers one note.</div>
+</div>
+
+<h2>三、每個調式怎麼唱</h2>
+<p>每個調式唱兩列。第一列是「同主音 do 列」:整首練習主音 C 固定唱 do;走到這個調式時累積改了哪幾個音,那幾個音就唱變化唱名(fi、te、me、le、ra、se),其他音的唱名不動。第二列是「首調列」:同一條音高不動,改用這個調式自己的母大調首調,從頭重唱一遍。</p>
+<p class="en">Each mode has two lines. The first is the fixed-do line: the tonic C is sung do for the whole drill, and whichever notes have been altered up to this mode take their altered syllables (fi, te, me, le, ra, se) while the rest stay put. The second is the solfege line: the same pitches re-sung from the top in this mode's own parent-major syllables.</p>
+<p>大調這一站,兩列唱名完全相同(都是 do re mi fa sol la ti do),只唱一遍,所以每個方向是 13 列,不是 14 列。</p>
+<p class="en">At the major-scale stop the two lines would be identical (do re mi fa sol la ti do), so it is sung only once; that is why each direction has 13 lines, not 14.</p>
+<p>這個練習新增兩個唱名:le(A♭)與 se(G♭);和 te、me、ra 一樣,只出現在同主音 do 列。</p>
+<p class="en">This drill adds two syllables, le (A♭) and se (G♭); like te, me and ra, they appear only in the fixed-do lines.</p>
+
+<h2>四、聽什麼</h2>
+<p>每次只有一個音變,先找出是哪個音。同主音 do 列裡,C 永遠唱 do,變的是其他音;首調列裡,同一個 C 的角色一直在換:依序被唱成 fa、do、sol、re、la、mi、ti。起音的實際音高始終相同,角色一直換,這是練習的核心。</p>
+<p class="en">Only one note changes at a time; find that note first. In the fixed-do lines C is always do and the other notes move; in the solfege lines the same C keeps changing roles: fa, do, sol, re, la, mi, ti in turn. The starting pitch never moves; its role keeps changing. That is the heart of this drill.</p>
+
+<h2>五、譜面與音檔對照</h2>
+<p>每列 8 個二分音符(4 小節),上聲部 C4 起、下聲部低八度,全曲 13 列。每個調式兩列,先同主音 do 列、再首調列;大調只一列。每列起點上方標明調式與唱法,例如「Mixolydian · 同主音 do(降二個 ti→te)」、「Mixolydian · 首調(sol 起)」。變化音帶降記號。</p>
+<p class="en">Each line is 8 half notes (4 bars); the upper staff starts on C4 and the lower staff an octave below; 13 lines in all. Each mode takes two lines, the fixed-do line first, then the solfege line; the major scale takes one. A label above each line names the mode and the singing plan, e.g. "Mixolydian · fixed do (2nd lowering, ti→te)" or "Mixolydian · solfege (starts on sol)". Altered notes carry flats.</p>
+
+<h2>六、譜例:逐次降音</h2>
+<p>C 起音練習的上聲部實譜,每列 8 音,唱名標在音符正下方;金色是累積變化音的唱名。實際演唱譜另有一個低八度的下聲部。</p>
+<p class="en">The upper staff of the C drill, 8 notes per line, solfege directly under each note; altered syllables are shown in gold. The sung score has a second staff one octave below.</p>
+<div id="staves"></div>
+
+<footer>
+  調式練習 Modes Practice<br>
+  台灣合唱音樂中心 TCMC 製作 · © 2026 朱元雷 Ray Chu · <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant">CC BY-NC 4.0</a>
+</footer>
+</div>
+
+<script>
+const CLEF_PATH = "M376 415C374 427 376 428 382 434C398 449 419 470 438 491C522 583 572 702 572 815C572 902 548 988 507 1048C492 1070 466 1098 455 1098C441 1098 410 1072 390 1050C316 968 292 843 292 739C292 681 299 616 306 575C308 563 309 561 297 551C233 498 164 437 112 373C43 287 0 194 0 87C0 -87 119 -252 364 -252C387 -252 413 -250 433 -246C444 -244 446 -243 448 -255C460 -322 475 -409 475 -456C475 -604 375 -622 316 -622C262 -622 236 -606 236 -593C236 -586 245 -583 268 -576C299 -567 335 -540 335 -482C335 -427 300 -380 239 -380C172 -380 132 -433 132 -495C132 -560 171 -658 322 -658C389 -658 519 -628 519 -458C519 -401 501 -306 490 -244C488 -232 489 -233 503 -227C604 -187 671 -102 671 11C671 139 577 252 430 252C404 252 404 252 401 270ZM470 943C503 943 530 916 530 861C530 792 497 728 419 650C403 634 379 611 356 591C349 585 345 586 343 599C339 625 337 659 337 691C337 847 409 943 470 943ZM361 262C364 243 364 244 346 238C258 208 201 129 201 44C201 -46 248 -110 316 -133C324 -136 336 -139 343 -139C351 -139 355 -134 355 -128C355 -121 347 -118 340 -115C298 -97 268 -54 268 -8C268 49 307 92 368 109C384 113 386 112 388 101L438 -197C440 -208 439 -208 424 -211C408 -214 388 -216 368 -216C193 -216 80 -119 80 20C80 79 90 158 173 252C233 319 279 356 326 394C336 402 338 401 340 390ZM430 103C428 115 429 118 441 117C522 110 589 42 589 -46C589 -109 551 -160 495 -188C483 -194 481 -194 479 -182Z";
+const ROWS_DOWN = [
+ {
+  "label": "Lydian 利底安 · 同主音 do(起點)",
+  "notes": [
+   {
+    "s": "C",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "D",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "E",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "F",
+    "a": 1,
+    "o": 4
+   },
+   {
+    "s": "G",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "A",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "B",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "C",
+    "a": 0,
+    "o": 5
+   }
+  ],
+  "syls": [
+   "do",
+   "re",
+   "mi",
+   "fi",
+   "sol",
+   "la",
+   "ti",
+   "do"
+  ]
+ },
+ {
+  "label": "Lydian 利底安 · 首調(fa 起)",
+  "notes": [
+   {
+    "s": "C",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "D",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "E",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "F",
+    "a": 1,
+    "o": 4
+   },
+   {
+    "s": "G",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "A",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "B",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "C",
+    "a": 0,
+    "o": 5
+   }
+  ],
+  "syls": [
+   "fa",
+   "sol",
+   "la",
+   "ti",
+   "do",
+   "re",
+   "mi",
+   "fa"
+  ]
+ },
+ {
+  "label": "大調 · 降一個 fi→fa(同主音 do 與首調相同,唱一遍)",
+  "notes": [
+   {
+    "s": "C",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "D",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "E",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "F",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "G",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "A",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "B",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "C",
+    "a": 0,
+    "o": 5
+   }
+  ],
+  "syls": [
+   "do",
+   "re",
+   "mi",
+   "fa",
+   "sol",
+   "la",
+   "ti",
+   "do"
+  ]
+ },
+ {
+  "label": "Mixolydian 米索利底安 · 同主音 do(降二個 ti→te)",
+  "notes": [
+   {
+    "s": "C",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "D",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "E",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "F",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "G",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "A",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "B",
+    "a": -1,
+    "o": 4
+   },
+   {
+    "s": "C",
+    "a": 0,
+    "o": 5
+   }
+  ],
+  "syls": [
+   "do",
+   "re",
+   "mi",
+   "fa",
+   "sol",
+   "la",
+   "te",
+   "do"
+  ]
+ },
+ {
+  "label": "Mixolydian 米索利底安 · 首調(sol 起)",
+  "notes": [
+   {
+    "s": "C",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "D",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "E",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "F",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "G",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "A",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "B",
+    "a": -1,
+    "o": 4
+   },
+   {
+    "s": "C",
+    "a": 0,
+    "o": 5
+   }
+  ],
+  "syls": [
+   "sol",
+   "la",
+   "ti",
+   "do",
+   "re",
+   "mi",
+   "fa",
+   "sol"
+  ]
+ },
+ {
+  "label": "Dorian 多里安 · 同主音 do(降三個 mi→me)",
+  "notes": [
+   {
+    "s": "C",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "D",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "E",
+    "a": -1,
+    "o": 4
+   },
+   {
+    "s": "F",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "G",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "A",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "B",
+    "a": -1,
+    "o": 4
+   },
+   {
+    "s": "C",
+    "a": 0,
+    "o": 5
+   }
+  ],
+  "syls": [
+   "do",
+   "re",
+   "me",
+   "fa",
+   "sol",
+   "la",
+   "te",
+   "do"
+  ]
+ },
+ {
+  "label": "Dorian 多里安 · 首調(re 起)",
+  "notes": [
+   {
+    "s": "C",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "D",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "E",
+    "a": -1,
+    "o": 4
+   },
+   {
+    "s": "F",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "G",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "A",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "B",
+    "a": -1,
+    "o": 4
+   },
+   {
+    "s": "C",
+    "a": 0,
+    "o": 5
+   }
+  ],
+  "syls": [
+   "re",
+   "mi",
+   "fa",
+   "sol",
+   "la",
+   "ti",
+   "do",
+   "re"
+  ]
+ },
+ {
+  "label": "自然小調 · 同主音 do(降四個 la→le)",
+  "notes": [
+   {
+    "s": "C",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "D",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "E",
+    "a": -1,
+    "o": 4
+   },
+   {
+    "s": "F",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "G",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "A",
+    "a": -1,
+    "o": 4
+   },
+   {
+    "s": "B",
+    "a": -1,
+    "o": 4
+   },
+   {
+    "s": "C",
+    "a": 0,
+    "o": 5
+   }
+  ],
+  "syls": [
+   "do",
+   "re",
+   "me",
+   "fa",
+   "sol",
+   "le",
+   "te",
+   "do"
+  ]
+ },
+ {
+  "label": "自然小調 · 首調(la 起)",
+  "notes": [
+   {
+    "s": "C",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "D",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "E",
+    "a": -1,
+    "o": 4
+   },
+   {
+    "s": "F",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "G",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "A",
+    "a": -1,
+    "o": 4
+   },
+   {
+    "s": "B",
+    "a": -1,
+    "o": 4
+   },
+   {
+    "s": "C",
+    "a": 0,
+    "o": 5
+   }
+  ],
+  "syls": [
+   "la",
+   "ti",
+   "do",
+   "re",
+   "mi",
+   "fa",
+   "sol",
+   "la"
+  ]
+ },
+ {
+  "label": "Phrygian 弗里吉安 · 同主音 do(降五個 re→ra)",
+  "notes": [
+   {
+    "s": "C",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "D",
+    "a": -1,
+    "o": 4
+   },
+   {
+    "s": "E",
+    "a": -1,
+    "o": 4
+   },
+   {
+    "s": "F",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "G",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "A",
+    "a": -1,
+    "o": 4
+   },
+   {
+    "s": "B",
+    "a": -1,
+    "o": 4
+   },
+   {
+    "s": "C",
+    "a": 0,
+    "o": 5
+   }
+  ],
+  "syls": [
+   "do",
+   "ra",
+   "me",
+   "fa",
+   "sol",
+   "le",
+   "te",
+   "do"
+  ]
+ },
+ {
+  "label": "Phrygian 弗里吉安 · 首調(mi 起)",
+  "notes": [
+   {
+    "s": "C",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "D",
+    "a": -1,
+    "o": 4
+   },
+   {
+    "s": "E",
+    "a": -1,
+    "o": 4
+   },
+   {
+    "s": "F",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "G",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "A",
+    "a": -1,
+    "o": 4
+   },
+   {
+    "s": "B",
+    "a": -1,
+    "o": 4
+   },
+   {
+    "s": "C",
+    "a": 0,
+    "o": 5
+   }
+  ],
+  "syls": [
+   "mi",
+   "fa",
+   "sol",
+   "la",
+   "ti",
+   "do",
+   "re",
+   "mi"
+  ]
+ },
+ {
+  "label": "Locrian 洛克里安 · 同主音 do(降六個 sol→se)",
+  "notes": [
+   {
+    "s": "C",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "D",
+    "a": -1,
+    "o": 4
+   },
+   {
+    "s": "E",
+    "a": -1,
+    "o": 4
+   },
+   {
+    "s": "F",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "G",
+    "a": -1,
+    "o": 4
+   },
+   {
+    "s": "A",
+    "a": -1,
+    "o": 4
+   },
+   {
+    "s": "B",
+    "a": -1,
+    "o": 4
+   },
+   {
+    "s": "C",
+    "a": 0,
+    "o": 5
+   }
+  ],
+  "syls": [
+   "do",
+   "ra",
+   "me",
+   "fa",
+   "se",
+   "le",
+   "te",
+   "do"
+  ]
+ },
+ {
+  "label": "Locrian 洛克里安 · 首調(ti 起)",
+  "notes": [
+   {
+    "s": "C",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "D",
+    "a": -1,
+    "o": 4
+   },
+   {
+    "s": "E",
+    "a": -1,
+    "o": 4
+   },
+   {
+    "s": "F",
+    "a": 0,
+    "o": 4
+   },
+   {
+    "s": "G",
+    "a": -1,
+    "o": 4
+   },
+   {
+    "s": "A",
+    "a": -1,
+    "o": 4
+   },
+   {
+    "s": "B",
+    "a": -1,
+    "o": 4
+   },
+   {
+    "s": "C",
+    "a": 0,
+    "o": 5
+   }
+  ],
+  "syls": [
+   "ti",
+   "do",
+   "re",
+   "mi",
+   "fa",
+   "sol",
+   "la",
+   "ti"
+  ]
+ }
+];
+
+
+const DIAT = { C: 0, D: 1, E: 2, F: 3, G: 4, A: 5, B: 6 };
+const PLAIN = new Set(['do', 're', 'mi', 'fa', 'sol', 'la', 'ti']);
+
+const FLOW_DOWN = [
+    { m: 'Lydian 利底安' }, { b: 'F♯', a: 'F' }, { m: '大調(Ionian)' }, { b: 'B', a: 'B♭' },
+    { m: 'Mixolydian 米索利底安' }, { b: 'E', a: 'E♭' }, { m: 'Dorian 多里安' }, { b: 'A', a: 'A♭' },
+    { m: '自然小調' }, { b: 'D', a: 'D♭' }, { m: 'Phrygian 弗里吉安' }, { b: 'G', a: 'G♭' },
+    { m: 'Locrian 洛克里安' },
+];
+
+(function renderFlow() {
+    const el = document.getElementById('flow');
+    const cls = (n) => (/[♯♭]/.test(n) ? 'fg' : 'ft');
+    let html = '';
+    FLOW_DOWN.forEach((it, i) => {
+        const arr = i > 0 ? '<span class="farr">→</span>' : '';
+        if ('m' in it) { html += '<span>' + arr + '<span class="fmode">' + it.m + '</span></span>'; }
+        else { html += '<span>' + arr + '<span class="fchg"><span class="' + cls(it.b) + '">' + it.b + '</span><span class="farr">→</span><span class="' + cls(it.a) + '">' + it.a + '</span></span></span>'; }
+    });
+    el.innerHTML = html;
+})();
+
+function staffRow(row) {
+    const TOP = 24, SPACE = 8, BOTTOM = TOP + 4 * SPACE, CZ = 34, COLW = 30;
+    let s = '';
+    for (let i = 0; i < 5; i++) {
+        const y = TOP + i * SPACE;
+        s += '<line x1="4" y1="' + y + '" x2="270" y2="' + y + '" stroke="#ADB5B1" stroke-width="0.8"/>';
+    }
+    s += '<g transform="translate(5,' + BOTTOM + ') scale(0.032,-0.032)"><path d="' + CLEF_PATH + '" fill="#23282B"/></g>';
+    row.notes.forEach((n, i) => {
+        const x = CZ + (i + 0.5) * COLW;
+        const steps = (n.o * 7 + DIAT[n.s]) - 30;
+        const y = BOTTOM - steps * (SPACE / 2);
+        for (let st = -2; st >= steps; st -= 2) {
+            const ly = BOTTOM - st * (SPACE / 2);
+            s += '<line x1="' + (x - 8) + '" y1="' + ly + '" x2="' + (x + 8) + '" y2="' + ly + '" stroke="#ADB5B1" stroke-width="0.9"/>';
+        }
+        for (let st = 10; st <= steps; st += 2) {
+            const ly = BOTTOM - st * (SPACE / 2);
+            s += '<line x1="' + (x - 8) + '" y1="' + ly + '" x2="' + (x + 8) + '" y2="' + ly + '" stroke="#ADB5B1" stroke-width="0.9"/>';
+        }
+        if (n.a !== 0) s += '<text x="' + (x - 11.5) + '" y="' + (y + 3.5) + '" text-anchor="middle" font-size="11" fill="#23282B">' + (n.a > 0 ? '♯' : '♭') + '</text>';
+        s += '<g transform="translate(' + x + ',' + y + ') rotate(-16)"><ellipse rx="4.8" ry="3.4" fill="#23282B"/><ellipse rx="2.9" ry="1.6" fill="#F7F4EF"/></g>';
+        const altered = !PLAIN.has(row.syls[i]);
+        s += '<text x="' + x + '" y="82" text-anchor="middle" font-size="10.5" font-weight="' + (altered ? 700 : 500) + '" fill="' + (altered ? '#B5741A' : '#0E7C6B') + '">' + row.syls[i] + '</text>';
+    });
+    return '<div class="srow"><div class="slabel">' + row.label + '</div><svg class="sstaff" viewBox="0 0 274 90" role="img" aria-label="' + row.label + '">' + s + '</svg></div>';
+}
+
+document.getElementById('staves').innerHTML = ROWS_DOWN.map(staffRow).join('');
+</script>
+</body>
+</html>
